@@ -6,4 +6,4 @@ Source of the SVGs used :
 - [bloodstain](https://www.flaticon.com/free-icon/spot_519043)
 
 In order to launch this application, open the console, go to the directory where the files are located and use the 
-command `python -m http.server`, then open the browser and go to `localhost:8000` (or `:3000` or whatever is shown on the commandline).
+command `python -m http.server` (or `python -m SimpleHTTPServer`), then open the browser and go to `localhost:8000` (or `:3000` or whatever is shown on the commandline).
