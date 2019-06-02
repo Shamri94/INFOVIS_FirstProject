@@ -4,3 +4,6 @@ First project for the course of __Information Visualization__ at _Università de
 Source of the SVGs used :
 - [mosquito](https://www.flaticon.com/free-icon/mosquito_1779542)
 - [bloodstain](https://www.flaticon.com/free-icon/spot_519043)
+
+In order to launch this application, open the console, go to the directory where the files are located and use the 
+command `python -m http.server`, then open the browser and go to `localhost:8000` (or `:3000` or whatever is shown on the commandline).
