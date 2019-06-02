@@ -4,7 +4,7 @@ function main() {
     var numberOfPositions = 10;
     var numberOfConfigurations = 10;
     var mosquitos = [];
-    var JSONConfigFile = "./configurations.json";
+    var JSONConfigFile = "configurations.json";
 
     // initialize the svg container
     var svgContainer = d3.select(".swarm").append("svg").attr("width",1520).attr("height", 720).style("border", "1px solid black");
@@ -15,7 +15,6 @@ function main() {
         configurationId: -1,
         height: 100,
         width: 150,
-
         // initialize the mosquito
         initializeMosquito : function (id, configurationId, positionId) {
             this.id = id;
@@ -23,8 +22,7 @@ function main() {
             this.configurationId = configurationId;
             this.createMosquito();
         },
-
-        // initialize the mosquito
+        // initialize the mosquito with a svg
         createMosquito : function () {
             var x = getPositionX(this.configurationId,this.positionId);
             var y = getPositionY(this.configurationId,this.positionId);
@@ -38,10 +36,9 @@ function main() {
                 .attr("viewBox","0 0 512.047 512.047")
                 .append("path")
                 .attr("d", "m506.992 358.166-35.284-43.13c11.715-14.869 17.89-32.652 17.89-51.831 0-52.972-47.215-96.067-105.25-96.067-.268 0-.535.007-.803.009-21.664-21.096-51.063-34.208-82.516-37.03-.327-.131-.642-.253-.952-.366l-187.94-68.405c-8.661-3.152-18.23-2.384-26.253 2.106-8.066 4.515-13.742 12.253-15.573 21.229-.828 4.059 1.792 8.02 5.85 8.847 4.056.826 8.02-1.791 8.847-5.85.958-4.696 3.947-8.755 8.202-11.136 4.274-2.393 9.172-2.783 13.796-1.1l155.11 56.455c-17.332 3.181-33.735 9.557-48.439 18.873h-85.156c-16.994-5.186-30.928-17.38-38.313-33.613-1.715-3.77-6.161-5.436-9.933-3.721-3.77 1.715-5.436 6.162-3.721 9.933 4.89 10.748 12.108 20.057 20.965 27.401h-58.607c-10.253 0-19.91 4.997-25.833 13.367-5.922 8.37-7.42 19.14-4.009 28.808 10.967 31.078 40.426 51.364 72.604 51.364 3.747 0 7.536-.275 11.332-.841l22.202-3.308c-19.278 10.018-37.793 21.63-54.909 34.444-.268.179-.525.372-.768.584-12.334 9.283-23.929 19.188-34.557 29.56-.212.184-.411.381-.6.587-3.11 3.051-6.147 6.137-9.083 9.265-20.639 21.987-20.35 56.387.658 78.314 10.791 11.263 25.323 17.494 40.92 17.545h.194c11.844 0 23.11-3.555 32.647-10.165-2.956 10.682 2.618 22.115 13.165 26.216 2.545.99 5.213 1.492 7.929 1.492 9.094-.001 17.101-5.48 20.398-13.956l27.209-69.976c9.818-6.368 20.024-12.353 30.43-17.835l3.405 2.381-23.855 96.879c-2.884 11.716 4.301 23.595 16.018 26.481 1.72.423 3.483.638 5.243.638 10.089-.001 18.821-6.849 21.236-16.654l20.409-82.883c17.648 7.764 37.129 11.846 56.903 11.846 22.053 0 43.69-5.048 62.865-14.63l17.568 71.347c2.415 9.806 11.148 16.654 21.237 16.654 1.76 0 3.523-.214 5.244-.638 11.715-2.886 18.9-14.765 16.016-26.481l-14.299-58.074c9.471-.888 18.629-2.798 27.372-5.71l37 30.269c3.206 2.623 7.931 2.15 10.554-1.056 2.622-3.206 2.15-7.931-1.056-10.554l-89.418-73.15c-4.583-3.749-7.269-9.07-7.564-14.983-.295-5.914 1.848-11.476 6.035-15.663 4.186-4.186 9.751-6.328 15.663-6.034 5.914.295 11.235 2.982 14.984 7.564l84.982 103.881c2.372 2.899 2.163 7.083-.487 9.733-.753.753-1.637 1.319-2.627 1.682-3.889 1.425-5.887 5.733-4.461 9.623 1.113 3.038 3.985 4.921 7.042 4.921.857 0 1.729-.148 2.58-.46 3.052-1.118 5.768-2.854 8.073-5.16 8.12-8.122 8.76-20.949 1.489-29.838zm-416.196-129.534c-29.301 4.366-57.721-12.742-67.579-40.678-1.822-5.162-1.053-10.685 2.108-15.153s8.114-7.031 13.587-7.031h88.432c.009 0 .019.002.028.002.008 0 .016-.002.024-.002h111.518c11.185 0 20.284 9.1 20.284 20.284 0 9.968-7.435 18.593-17.295 20.063zm67.81 28.943c-1.639.114-3.28.413-4.894.904-6.456 1.961-11.563 6.687-14.02 12.969-1.193-7.368-1.738-16.16-1.077-26.055 6.605-3.035 13.277-5.867 19.994-8.483-.331 3.43-.507 6.875-.507 10.32-.001 3.448.171 6.904.504 10.345zm-35.255-4.749c-.112 15.946 2.487 30.817 7.401 41.611l-5.832 14.999c-.768.194-1.555.302-2.356.302-3.772 0-7.14-2.105-8.788-5.495-5.371-11.04-8.668-25.087-9.622-40.831 6.291-3.707 12.699-7.241 19.197-10.586zm-67.376 44.246c.395 16.334 4.764 29.128 8.955 37.741 1.141 2.344 1.3 4.992.449 7.456-.852 2.464-2.611 4.449-4.957 5.59-1.345.655-2.777.987-4.256.987-3.772 0-7.14-2.105-8.789-5.494-4.598-9.452-7.779-19.605-9.497-30.222 5.76-5.505 11.804-10.865 18.095-16.058zm45.904 71.618c-4.953 4.524-9.744 9.153-14.244 13.789-8.129 8.374-18.981 12.98-30.573 12.98h-.143c-11.487-.038-22.19-4.627-30.138-12.922-15.134-15.797-15.704-40.338-1.564-56.539 2.073 8.297 4.968 16.301 8.673 23.915 4.118 8.463 12.862 13.932 22.277 13.932 3.772 0 7.413-.841 10.819-2.499 5.947-2.893 10.412-7.929 12.572-14.18s1.755-12.969-1.138-18.916c-4.424-9.093-9.067-23.836-6.916-43.287 5.958-4.393 12.086-8.634 18.359-12.708 1.612 14.545 5.147 27.701 10.426 38.55 3.602 7.405 10.745 12.517 18.781 13.68zm65.519-47.733 2.97-7.638 4.714 3.296c-2.576 1.42-5.139 2.867-7.684 4.342zm3.739-25.403c-1.887-1.319-4.273-1.7-6.477-1.03-2.203.669-3.976 2.313-4.811 4.458l-42.628 109.628c-1.038 2.668-3.558 4.392-6.418 4.393-.848 0-1.686-.159-2.491-.472-3.538-1.375-5.296-5.372-3.921-8.91l49.266-126.698c.771-1.982 2.38-3.474 4.415-4.092 1.784-.541 3.667-.343 5.278.533.212.147.432.283.659.407.003.002.006.003.009.005l35.603 24.894-3.529 14.331-2.41-1.685c-.016-.011-.033-.023-.049-.034zm117.062 54.369c-18.602 0-36.885-4.027-53.255-11.662l2.894-11.753 22.326 15.61c3.394 2.373 8.07 1.546 10.444-1.849s1.546-8.071-1.849-10.444l-31.291-21.878c-2.027-1.418-4.623-1.744-6.937-.874-2.315.871-4.052 2.826-4.644 5.228l-29.565 120.072c-.76 3.086-3.504 5.241-6.672 5.241-.553 0-1.111-.068-1.657-.203-3.686-.908-5.946-4.645-5.039-8.33l34.582-140.442c.544-2.206 2.137-4 4.262-4.798 2.128-.799 4.506-.499 6.367.802l48.483 33.9c3.394 2.373 8.07 1.546 10.444-1.849 2.373-3.395 1.546-8.071-1.849-10.444l-48.483-33.9c-5.917-4.137-13.485-5.091-20.241-2.55-6.122 2.302-10.846 7.204-12.966 13.318l-29.136-20.373c-.871-5.123-1.317-10.329-1.317-15.518 0-5.326.464-10.654 1.378-15.9l69.634-10.375c17.15-2.555 30.084-17.559 30.084-34.898 0-16.919-11.972-31.089-27.888-34.498 13.22-4.619 27.35-7.023 41.889-7.023 27.572 0 54.003 8.831 74.711 24.609-47.79 9.062-83.813 47.793-83.813 94.061 0 34.86 20.668 63.923 52.587 79.106-13.727 5.001-28.486 7.614-43.483 7.614zm103.33 73.169c-.547.134-1.105.203-1.659.203-3.169 0-5.913-2.155-6.673-5.24l-16.123-65.481c4.7.613 9.519.983 14.445 1.084l15.046 61.104c.907 3.685-1.353 7.422-5.036 8.33zm30.481-168.807c-6.373-7.79-15.794-12.546-25.846-13.047-10.042-.506-19.899 3.292-27.017 10.41-7.117 7.117-10.911 16.964-10.41 27.017s5.257 19.473 13.048 25.846l38.251 31.292c-8.226 1.906-16.817 2.884-25.689 2.884-10.718 0-21.071-1.429-30.726-4.162-.136-.043-.274-.078-.413-.112-12.507-3.596-23.822-9.396-33.201-17.153-16.709-13.82-25.911-33.018-25.911-54.055 0-44.701 40.486-81.067 90.25-81.067s90.25 36.366 90.25 81.067c0 14.607-4.363 28.23-12.668 39.878zm-85.033-30.657c-10.406 0-18.872 8.466-18.872 18.873 0 4.142 3.358 7.5 7.5 7.5s7.5-3.358 7.5-7.5c0-2.135 1.737-3.873 3.872-3.873s3.872 1.737 3.872 3.873c0 4.142 3.358 7.5 7.5 7.5s7.5-3.358 7.5-7.5c0-10.407-8.466-18.873-18.872-18.873zm101.654 0c-10.406 0-18.872 8.466-18.872 18.873 0 4.142 3.358 7.5 7.5 7.5s7.5-3.358 7.5-7.5c0-2.135 1.737-3.873 3.872-3.873s3.872 1.737 3.872 3.873c0 4.142 3.358 7.5 7.5 7.5s7.5-3.358 7.5-7.5c0-10.407-8.466-18.873-18.872-18.873z");
-            // after been created, move the mosquito to a position of configuration 0
+            // after been created, move the mosquito to a position of the initial configuration
             mosquito.attr('transform', 'translate('+ x +', '+ y +') ');
         },
-
         // move the mosquito to a different configuration in a position with the previous id
         moveMosquito : function() {
             this.configurationId = (this.configurationId + 1) % numberOfConfigurations;
@@ -52,8 +49,7 @@ function main() {
                 .duration(500)
                 .attr('transform', 'translate('+ x +', '+ y +') ');
         },
-
-        // eliminate the mosquito and replace it with a bloodstain
+        // eliminate the mosquito and replace it with a bloodstain svg
         killMosquito : function() {
             var x = getPositionX(this.configurationId,this.positionId);
             var y = getPositionY(this.configurationId,this.positionId);
@@ -94,14 +90,23 @@ function main() {
                 .attr("d","M509.963,495.182c13.413-28.781-43.395-54.443-54.171-21.8" +
                 "C446.922,500.249,492.671,532.285,509.963,495.182z")
             },
-
-        // eliminate the mosquito when it is clicked with the left button
+        // trigger the elimination of the mosquito when it is clicked with the mouse left button
         addEventListener : function() {
             var self = this;
             d3.select("#mosquito"+this.id).on("click", function(event) {
                         self.killMosquito();
             })
         },
+    }
+
+    // get the x coordinate with the configuration id and the position id
+    function getPositionX(configurationId,positionId) {
+        return mosquitoConfig[configurationId][positionId].x;
+    }
+
+    // get the y coordinate with the configuration id and the position id
+    function getPositionY(configurationId,positionId) {
+        return mosquitoConfig[configurationId][positionId].y;
     }
 
     // create more mosquitos
@@ -116,8 +121,8 @@ function main() {
         return newMosquito;
     };
 
-    // move all the mosquitos to a different configuration when the key 'x' is pressed
     document.addEventListener('keydown', keyPressed);
+    // move all the mosquitos to a different configuration when the key 'x' is pressed
     function keyPressed(e) {
         keyName = event.key;
         if( keyName == 'x') {
@@ -127,87 +132,21 @@ function main() {
         }
     }
 
-    // load configuration from JSON file
-    JSONConfigText = 
-        '[' +
-        '[' +
-        // 0 : decagon
-        '{"x":"760", "y":"110"},{"x":"613", "y":"158"},{"x":"522", "y":"283"},{"x":"522", "y":"437"},{"x":"613", "y":"562"},{"x":"760", "y":"610"},{"x":"907", "y":"562"},{"x":"998", "y":"437"},{"x":"998", "y":"283"},{"x":"907", "y":"158"}' +
-        '],' +
-        '[' +
-        // 1 : horizontal line
-        '{"x":"46", "y":"360"},{"x":"198", "y":"360"},{"x":"350", "y":"360"},{"x":"502", "y":"360"},{"x":"654", "y":"360"},{"x":"806", "y":"360"},{"x":"958", "y":"360"},{"x":"1110", "y":"360"},{"x":"1262", "y":"360"},{"x":"1414", "y":"360"}' +
-        '],' +
-        '[' +
-        // 2 : rectangle
-        '{"x":"1060", "y":"360"},{"x":"460", "y":"360"},{"x":"460", "y":"260"},{"x":"460", "y":"460"},{"x":"1060", "y":"460"},{"x":"1060", "y":"260"},{"x":"660", "y":"260"},{"x":"860", "y":"260"},{"x":"660", "y":"460"},{"x":"860", "y":"460"}' +
-        '],' +
-        '[' +
-        // 3 : vertical line
-        '{"x":"760", "y":"78"},{"x":"760", "y":"222"},{"x":"760", "y":"150"},{"x":"760", "y":"294"},{"x":"760", "y":"366"},{"x":"760", "y":"438"},{"x":"760", "y":"510"},{"x":"760", "y":"582"},{"x":"760", "y":"654"},{"x":"760", "y":"6"}' +
-        '],' +
-        '[' +
-        // 4 : triangle inside a hexagon
-        '{"x":"760", "y":"60"},{"x":"500", "y":"210"},{"x":"500", "y":"510"},{"x":"760", "y":"360"},{"x":"760", "y":"210"},{"x":"630", "y":"435"},{"x":"890", "y":"435"},{"x":"760", "y":"660"},{"x":"1020", "y":"510"},{"x":"1020", "y":"210"}' +
-        '],' +
-        '[' +
-        // 5 : two squares
-        '{"x":"190", "y":"180"},{"x":"570", "y":"180"},{"x":"950", "y":"180"},{"x":"1330", "y":"180"},{"x":"190", "y":"540"},{"x":"570", "y":"540"},{"x":"950", "y":"540"},{"x":"1330", "y":"540"},{"x":"380", "y":"360"},{"x":"1140", "y":"360"}' +
-        '],' +
-        '[' +
-        // 6 : main diagonal
-        '{"x":"76", "y":"654"},{"x":"228", "y":"582"},{"x":"380", "y":"510"},{"x":"532", "y":"438"},{"x":"684", "y":"366"},{"x":"836", "y":"294"},{"x":"988", "y":"222"},{"x":"1140", "y":"150"},{"x":"1262", "y":"78"},{"x":"1414", "y":"6"}' +
-        '],' +
-        '[' +
-        // 7 : pyramid
-        '{"x":"760", "y":"0"},{"x":"448", "y":"540"},{"x":"1072", "y":"540"},{"x":"656", "y":"180"},{"x":"552", "y":"360"},{"x":"864", "y":"180"},{"x":"968", "y":"360"},{"x":"656", "y":"540"},{"x":"864", "y":"540"},{"x":"760", "y":"360"}' +
-        '],' +
-        '[' +
-        // 8 : secondary diagonal
-        '{"x":"76", "y":"6"},{"x":"228", "y":"78"},{"x":"380", "y":"150"},{"x":"532", "y":"222"},{"x":"684", "y":"294"},{"x":"836", "y":"366"},{"x":"988", "y":"438"},{"x":"1140", "y":"510"},{"x":"1262", "y":"582"},{"x":"1414", "y":"654"}' +
-        '],' +
-        '[' +
-        // 9 : pentagon
-        '{"x":"589", "y":"124.5"},{"x":"760", "y":"0"},{"x":"931", "y":"124.5"},{"x":"418", "y":"249"},{"x":"483", "y":"450"},{"x":"548", "y":"651"},{"x":"760", "y":"651"},{"x":"972", "y":"651"},{"x":"1037", "y":"450"},{"x":"1102", "y":"249"}' +
-        ']' +
-        ']';
-
-    // load the configurations with a textual JSON
-    var mosquitoConfig = JSON.parse(JSONConfigText);
-
-    // var mosquitoConfig2 = readJ();
-
-    // var data=fs.readFileSync('configurations.json', 'utf8');
-    // var words=JSON.parse(JSON.stringify(data));
-
-    // var readJ = function() {
-    //     var mosquitoConfig2 = [];
-    //     d3.json(JSONConfigFile, function (data) {
-    //         mosquitoConfig2 = JSON.parse(JSON.stringify(data));
-    //         // console.log('lettura json esterno, posizione x ' + mosquitoConfig2[0][2].x)
-    //     })
-    //     return mosquitoConfig2
-    // }
-
-    // get the x coordinate with the configuration id and the position id
-    function getPositionX(configurationId,positionId) {
-        return mosquitoConfig[configurationId][positionId].x;
-    }
-
-    // get the y coordinate with the configuration id and the position id
-    function getPositionY(configurationId,positionId) {
-        return mosquitoConfig[configurationId][positionId].y;
-    }
-
-    // create mosquitos
-    for (var i = 0; i < numberOfMosquitos; i++) {
-        // for each position create a mosquito
-        var positionId = i % numberOfPositions;
-        // this is the starting configuration
-        var configurationId = 0;
-        var newMosquito = cloneMosquito();
-        newMosquito.initializeMosquito(i, configurationId, positionId);
-        mosquitos.push(newMosquito);
-        mosquitos[i].addEventListener();
-    }
+    var mosquitoConfig = [];
+    // parse the json file and save the configurations in mosquitoConfig
+    d3.json(JSONConfigFile).then(function(data){
+        mosquitoConfig = JSON.parse(JSON.stringify(data));
+        // create mosquitos
+        for (var i = 0; i < numberOfMosquitos; i++) {
+            // for each position create a mosquito
+            var positionId = i % numberOfPositions;
+            // The possible configuration are :
+            // (0) decagon, (1) horizontal line, (2) rectangle, (3) vertical line, (4) triangle inside a hexagon,
+            // (5) two squares, (6) main diagonal, (7) pyramid, (8) secondary diagonal, (9) pentagon.
+            var configurationId = 0; // this is the id of the starting configuration
+            var newMosquito = cloneMosquito();
+            newMosquito.initializeMosquito(i, configurationId, positionId);
+            mosquitos.push(newMosquito);
+            mosquitos[i].addEventListener();}
+    });
 }
